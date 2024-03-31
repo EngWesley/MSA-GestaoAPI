@@ -41,8 +41,9 @@ public class RestaurantService implements Serializable {
 	
 	public EntityModel<Restaurant> create(Restaurant obj) {
 		Restaurant createdRestaurant = restRepository.save(obj);
+		Long id = createdRestaurant.getId();
 		
-		Link selfLink = linkTo(methodOn(RestaurantController.class).findById(createdRestaurant.getId())).withSelfRel();
+		Link selfLink = linkTo(methodOn(RestaurantController.class).findById(id)).withSelfRel();
         EntityModel<Restaurant> entityModel = EntityModel.of(createdRestaurant, selfLink);
 
         return entityModel;

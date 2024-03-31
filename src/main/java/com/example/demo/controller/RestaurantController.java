@@ -54,6 +54,7 @@ public class RestaurantController {
 	public ResponseEntity<EntityModel<Restaurant>> update(@PathVariable(value="id") Long id, @RequestBody Restaurant obj){
 		EntityModel<Restaurant> restaurantEntityModel = restService.update(id, obj);
 		
+		
 		return ResponseEntity.ok(restaurantEntityModel);
 	}
 	
